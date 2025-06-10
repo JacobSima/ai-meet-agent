@@ -33,8 +33,16 @@ Agent Call AI App
 		- Add Schema
 		   - Push schema
 		   - Verify changes in Neon
-		   - verifiy changes in Drizzle Studio
-		   -create , review and merge pull request
+		   - Verifiy changes in Drizzle Studio
+		   - Create , review and merge pull request
+	
+	03. Authentication setup
+		- Integrate Better-auth
+		- Configure auth schema
+		- Create basic UI(create new user)
+		- Create , review and merge pull request
+		
+		npm install better-auth
 	
 	
 	
