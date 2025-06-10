@@ -1,0 +1,44 @@
+Agent Call AI App
+
+	Next.js 15
+	Better Auth
+	Polar 
+	
+	01. Setup
+
+		-	npx create-next-app@15.3.2
+				√ What is your project named? ... ai-agent
+				√ Would you like to use TypeScript? ... No / Yes  								(Yes)
+				√ Would you like to use ESLint? ... No / Yes    								(Yes)
+				√ Would you like to use Tailwind CSS? ... No / Yes								(Yes)			
+				√ Would you like your code inside a `src/` directory? ... No / Yes				(Yes)
+				√ Would you like to use App Router? (recommended) ... No / Yes					(Yes)
+				√ Would you like to use Turbopack for `next dev`? ... No / Yes					(Yes)
+				? Would you like to customize the import alias (`@/*` by default)? » No / Yes	(No)
+				
+			
+			
+		-   npx shadcn@2.5.0 init
+		-	npx shadcn@2.5.0 add button (npx shadcn@2.5.0 add --all)
+		
+	
+	02. Database
+		
+		- Add a PostgreSQL database from(Neon) (from neon create DB and save the conection string to the .env file)
+		- Add DrizzleORM
+			npm i drizzle-orm pg dotenv
+			npx drizzle-kit push
+			npx drizzle-kit studio
+		
+		- Add Schema
+		   - Push schema
+		   - Verify changes in Neon
+		   - verifiy changes in Drizzle Studio
+		   -create , review and merge pull request
+	
+	
+	
+	
+	
+
+	
