@@ -43,6 +43,7 @@ Agent Call AI App
 		- Create , review and merge pull request
 		
 		npm install better-auth
+		npx @better-auth/cli generate
 	
 	
 	
