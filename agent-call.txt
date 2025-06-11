@@ -45,6 +45,17 @@ Agent Call AI App
 		npm install better-auth
 		npx @better-auth/cli generate
 	
+	04.	Authentication UI
+		-	Create Auth pages
+		-	Create Auth Layout
+		-	Create Auth module
+		-	Create Auth views
+				- Register form
+				- Login form
+				- get app logo
+		
+	    - Create , review and merge pull request
+		 logoipsum.com
 	
 	
 	
