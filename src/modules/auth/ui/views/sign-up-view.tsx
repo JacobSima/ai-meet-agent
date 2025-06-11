@@ -24,14 +24,15 @@ import Link from 'next/link';
 import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import {FaGithub, FaGoogle} from "react-icons/fa";
 
 const formSchema = z.object({
   email: z.string().email(),
-  name: z.string().min(1, {message: "Name is required"}),
+  name: z.string().min(1, { message: "Name is required" }),
   password: z.string().min(1, { message: "Password is required" }),
   confirmPassword: z.string().min(1, { message: "Password is required" }),
 })
-.refine(data => data.password === data.confirmPassword, {message: "Passwords don't match", path: ["confirmPassword"]});
+  .refine(data => data.password === data.confirmPassword, { message: "Passwords don't match", path: ["confirmPassword"] });
 
 export const SignUpView = () => {
   const router = useRouter();
@@ -53,17 +54,37 @@ export const SignUpView = () => {
     setIsPending(true);
 
     authClient.signUp.email(
-      {name: data.name, email: data.email, password: data.password }, 
+      { name: data.name, email: data.email, password: data.password, callbackURL: "/" },
       {
         onSuccess: () => {
+          setIsPending(false);
           router.push("/");
         },
-        onError: ({error}) => {
+        onError: ({ error }) => {
+          setIsPending(false);
           setError(error.message);
         }
       }
     );
-    
+
+    setIsPending(false);
+  };
+
+  const handleSocialOnSubmit = (provider: "github" | "google") => {
+    setError(null);
+    setIsPending(true);
+
+    authClient.signIn.social(
+      { provider, callbackURL: "/" },
+      {
+        onSuccess: () => {
+        },
+        onError: ({ error }) => {
+          setError(error.message);
+        }
+      }
+    );
+
     setIsPending(false);
   };
 
@@ -157,7 +178,7 @@ export const SignUpView = () => {
                   disabled={isPending}
                   className="w-full"
                 >
-                  Sign in
+                  Sign Up
                 </Button>
                 <div
                   className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 
@@ -173,7 +194,9 @@ export const SignUpView = () => {
                     type="button"
                     disabled={isPending}
                     className="w-full"
+                    onClick={() => handleSocialOnSubmit("google")}
                   >
+                    <FaGoogle />
                     Google
                   </Button>
                   <Button
@@ -181,7 +204,9 @@ export const SignUpView = () => {
                     type="button"
                     disabled={isPending}
                     className="w-full"
+                    onClick={() => handleSocialOnSubmit("github")}
                   >
+                    <FaGithub />
                     Github
                   </Button>
                 </div>
