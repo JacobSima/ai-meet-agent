@@ -55,7 +55,16 @@ Agent Call AI App
 				- get app logo
 		
 	    - Create , review and merge pull request
-		 logoipsum.com
+		-logoipsum.com(for svg icons)
+	
+	
+	05.	Authentication Socials
+		- Configure social providers
+			- Github
+			- Google
+		- Protect non-auth pages
+		- Create , review and merge pull request
+   		
 	
 	
 	
