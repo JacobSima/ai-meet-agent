@@ -63,8 +63,18 @@ Agent Call AI App
 			- Github
 			- Google
 		- Protect non-auth pages
+		-(npm i react-cions)
 		- Create , review and merge pull request
-   		
+		
+	
+	06. Dashboard Sidebar
+		- Create dashboard layout
+		- Create dashboard modukle
+		- Create dashboard sidebar
+        - Modify global.css theme
+        - Fix gradient color in auth views
+        - Create , review and merge pull request   	
+        (npm i @dicebear/core @dicebear/collection)		
 	
 	
 	
