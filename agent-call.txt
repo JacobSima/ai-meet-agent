@@ -77,6 +77,10 @@ Agent Call AI App
         (npm i @dicebear/core @dicebear/collection)		
 	
 	
+	07. Dashboard Navbar
+		- Create dashboard navbar
+		- Add responsive drawer to dashboard user button
+		- Create , review and merge pull request 
 	
 	
 
