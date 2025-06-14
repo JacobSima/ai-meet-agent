@@ -131,4 +131,13 @@ Agent Call AI App
 		    - search input and pagination
 		- Sync RSC filters and client filters
 		- Create , review and merge pull request
+	
+	
+	14. Agent Page
+		- Modify "agents.getOne" procedure
+		- Add agent ID pages
+		- Add data table redirect on click
+		- Add agent ID view
+		- Create , review and merge pull request
+		
 		
