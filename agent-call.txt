@@ -107,3 +107,13 @@ Agent Call AI App
 		- Create , review and merge pull request
 		
 	
+	11. Agents form
+		- Add 'protectedProcedure'
+		- Add 'agents.create' procedure
+		- Add list header
+		- Add new agent dialog
+		- A add agent form
+		   - reusable for create and update
+		- Create , review and merge pull request 
+		
+	
