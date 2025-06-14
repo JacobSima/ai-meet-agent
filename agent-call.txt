@@ -90,5 +90,15 @@ Agent Call AI App
 		preview prefetching
 	
 	
-
+	09. Agents setup
+		- Add agents schema
+		- Add agents module
+		- Add agents procedures
+		- Add agents pages
+		- Add loading state
+		- Add error state
+		- Create , review and merge pull request
+		(npm i nanoid)
+		(npm i react-error-boundary)
+		
 	
