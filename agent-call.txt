@@ -124,3 +124,11 @@ Agent Call AI App
 		- Create , review and merge pull request
 		(npm install @tanstack/react-table)
 	
+	13. Agents filters
+		- Modify "agents.getMany and getOne" procedure
+		- Add NUQS(npm i nuqs)
+		- Add UI for filters
+		    - search input and pagination
+		- Sync RSC filters and client filters
+		- Create , review and merge pull request
+		

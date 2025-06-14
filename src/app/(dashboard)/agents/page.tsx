@@ -11,8 +11,16 @@ import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
+import { SearchParams } from 'nuqs';
+import { loadSearchParams } from '@/modules/agents/params';
 
-const AgentsPage = async () => {
+interface Props {
+  searchParams: Promise<SearchParams>,
+}
+
+const AgentsPage = async({searchParams}: Props) => {
+  // Get nuqs filters from the server components
+  const filters = await loadSearchParams(searchParams);
   const session = await auth.api.getSession({ headers: await headers() });
 
   if (!session) {
@@ -22,7 +30,7 @@ const AgentsPage = async () => {
   const queryClient = getQueryClient();
 
   // Prefetch in server component
-  void queryClient.prefetchQuery(trpc.agents.getMany.queryOptions());
+  void queryClient.prefetchQuery(trpc.agents.getMany.queryOptions({...filters}));
 
   return (
     <>

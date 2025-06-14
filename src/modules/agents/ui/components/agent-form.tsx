@@ -34,7 +34,7 @@ export const AgentForm = ({ onSuccess, onCancel, initialValues }: Props) => {
   const createAgent = useMutation(
     trpc.agents.create.mutationOptions({
       onSuccess: async () => { // Since we did a prefetch, it is good practice to revalidate the data
-        await queryClient.invalidateQueries(trpc.agents.getMany.queryOptions());
+        await queryClient.invalidateQueries(trpc.agents.getMany.queryOptions({}));
 
         if (initialValues?.id) {
           await queryClient.invalidateQueries(trpc.agents.getOne.queryOptions({ id: initialValues.id }));
