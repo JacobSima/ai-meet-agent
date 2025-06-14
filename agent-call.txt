@@ -116,4 +116,11 @@ Agent Call AI App
 		   - reusable for create and update
 		- Create , review and merge pull request 
 		
+    
+	12. Agents data table Excalidraw Plus
+		- Add data table component
+		- Add empty state component
+		   - obtain assets(cwantonio.com/meet-assets)
+		- Create , review and merge pull request
+		(npm install @tanstack/react-table)
 	
