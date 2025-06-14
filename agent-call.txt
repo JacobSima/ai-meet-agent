@@ -82,6 +82,13 @@ Agent Call AI App
 		- Add responsive drawer to dashboard user button
 		- Create , review and merge pull request 
 	
+	08. TRPC Setup
+		- Setup trpc(with tanstack server component)
+			npm install @trpc/server @trpc/client @trpc/tanstack-react-query @tanstack/react-query@latest zod client-only server-only
+		- Experiment with client component
+		- Experiment with server component
+		preview prefetching
+	
 	
 
 	
