@@ -100,5 +100,10 @@ Agent Call AI App
 		- Create , review and merge pull request
 		(npm i nanoid)
 		(npm i react-error-boundary)
+	
+	10. Responsive Dialog
+		- Add responsive dialog
+		- Add responsive command dialog
+		- Create , review and merge pull request
 		
 	
