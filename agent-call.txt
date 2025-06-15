@@ -139,5 +139,13 @@ Agent Call AI App
 		- Add data table redirect on click
 		- Add agent ID view
 		- Create , review and merge pull request
+	
+	
+	15. Agent Update and Delete
+		- Add "agents.remove" procedure
+		- Add "agents.update" procedure
+		- Add edit UI
+		- Add delete UI
+		- Create , review and merge pull request
 		
 		
