@@ -3,10 +3,10 @@
 import z from "zod";
 import { useTRPC } from "@/trpc/client";
 import { AgentGetOne } from "../../types";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { agentInsertSchema } from "../../schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   Form,
   FormControl,
@@ -15,11 +15,11 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
-import { GeneratedAvatar } from "@/components/generated-avatar";
-import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import { Textarea } from "@/components/ui/textarea";
+import { GeneratedAvatar } from "@/components/generated-avatar";
 
 interface Props {
   onSuccess?: () => void,
@@ -33,6 +33,21 @@ export const AgentForm = ({ onSuccess, onCancel, initialValues }: Props) => {
 
   const createAgent = useMutation(
     trpc.agents.create.mutationOptions({
+      onSuccess: async () => { // Since we did a prefetch, it is good practice to revalidate the data
+        await queryClient.invalidateQueries(trpc.agents.getMany.queryOptions({}));
+        //TODO: Invalidate free tier usage
+
+        onSuccess?.();
+      },
+      onError: (error) => {
+        toast.error(error.message);
+        //TODO: check if error is ""FORBIDDEN, redirect to /upgrade
+      },
+    }),
+  );
+
+  const updateAgent = useMutation(
+    trpc.agents.update.mutationOptions({
       onSuccess: async () => { // Since we did a prefetch, it is good practice to revalidate the data
         await queryClient.invalidateQueries(trpc.agents.getMany.queryOptions({}));
 
@@ -58,11 +73,11 @@ export const AgentForm = ({ onSuccess, onCancel, initialValues }: Props) => {
   });
 
   const isEdit = !!initialValues?.id;
-  const isPending = createAgent.isPending;
+  const isPending = createAgent.isPending || updateAgent.isPending;
 
   const handleOnSubmit = (values: z.infer<typeof agentInsertSchema>) => {
     if (isEdit) {
-      console.log("Update agent");
+      updateAgent.mutate({ ...values, id: initialValues.id });
     } else {
       createAgent.mutate(values);
     }
